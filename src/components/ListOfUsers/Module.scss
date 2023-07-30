@@ -1,0 +1,19 @@
+.container-card {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  & .img-github {
+    width: 12em;
+    height: 12em;
+    border-radius: 50%;
+    margin-top: 2em;
+  }
+
+  & .container-card {
+    background-color: #262D33;
+    margin: 10px;
+    width: 263px;
+    height: 370px;
+    flex-shrink: 0;
+  }
+}
