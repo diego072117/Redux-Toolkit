@@ -1,14 +1,10 @@
 import "./Module.scss";
-import { useAppDispatch, useAppSelector } from "../../hooks/store";
-import { UserId, deleteUserById } from "../../store/users/slice";
+import { useAppSelector } from "../../hooks/store";
+import { useUserActions } from "../../hooks/useUsers";
 
 export const ListOfUsers = () => {
   const users = useAppSelector((state) => state.users)
-  const dispatch = useAppDispatch()
-
-  const handleRemoveUser = (id: UserId) => {
-    dispatch(deleteUserById(id))
-  }
+  const { removeUser } = useUserActions()
   return (
     <>
     <p>Usuarios: {users.length}</p>
@@ -26,7 +22,7 @@ export const ListOfUsers = () => {
             </div>
             <div className="buttons">
               <button>Edit</button>
-              <button onClick={() => handleRemoveUser(item.id)}>Delete</button>
+              <button onClick={() => removeUser(item.id)}>Delete</button>
             </div>
           </div>
         ))}
