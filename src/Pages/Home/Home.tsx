@@ -21,7 +21,7 @@ export const Home = () => {
         </div>
         <ListOfUsers />
       </div>
-      <Modal isOpen={isOpen} onClose={handleStateModal}>
+      <Modal isOpen={isOpen} onClose={handleStateModal} title="New User">
         <CreateNewUser onCloseModal={handleStateModal} />
       </Modal>
     </>

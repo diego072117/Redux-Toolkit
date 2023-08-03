@@ -1,13 +1,10 @@
 .modal-overlay {
-//   width: 100vw;
-//   height: 100vh;
-height: 100%;
-width: 100%;
+  width: 100vw;
+  height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
   background: rgba(0, 0, 0, 0.5);
-  padding: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,14 +12,29 @@ width: 100%;
 
 .modal {
   background-color: #fff;
-
-  // width: 10em;
-  // height: 5em;
+  max-width: 24em;
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
-.modal-form {
+.modal-header {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  margin: 10px 20px;
+  border-bottom: solid 1px #525252;
+  color: rgb(39, 130, 216);
+  font-weight: 700;
+  font-size: 20px;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.close-btn {
+  border: none;
+  background-color: #fff;
+  cursor: pointer;
+  font-size: 20px;
+  color: rgb(39, 130, 216);
+  font-weight: 700;
 }
