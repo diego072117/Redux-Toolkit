@@ -1,13 +1,13 @@
 import "./Module.scss";
 import { useAppSelector } from "../../hooks/store";
-import { useUserActions } from "../../hooks/useUsers";
+import { useUserActions } from "../../hooks/useUsersActions";
 
 export const ListOfUsers = () => {
   const users = useAppSelector((state) => state.users)
   const { removeUser } = useUserActions()
   return (
     <>
-    <p>Usuarios: {users.length}</p>
+    {/* <p>Usuarios: {users.length}</p> */}
       <div className="container-card">
         {users.map((item) => (
           <div className="container-card" key={item.id}>

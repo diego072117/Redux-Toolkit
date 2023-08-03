@@ -1,0 +1,9 @@
+.new-user {
+  & .button-new-user {
+    border: none;
+    padding: 10px;
+    background-color: lightgreen;
+    border-radius: 10px;
+    cursor: pointer;  
+  }
+}
