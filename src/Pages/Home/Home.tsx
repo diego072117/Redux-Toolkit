@@ -5,24 +5,24 @@ import { Modal } from "../../components/Modal/Modal";
 import "./Module.scss";
 
 export const Home = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [modalNewUser, setModalNewUser] = useState(false);
 
-  const handleStateModal = () => {
-    setIsOpen(!isOpen);
+  const modalNewUserState = () => {
+    setModalNewUser(!modalNewUser);
   };
 
   return (
     <>
       <div className="container-users">
         <div className="new-user">
-          <button className="button-new-user" onClick={handleStateModal}>
+          <button className="button-new-user" onClick={modalNewUserState}>
             New user
           </button>
         </div>
         <ListOfUsers />
       </div>
-      <Modal isOpen={isOpen} onClose={handleStateModal}>
-        <CreateNewUser onCloseModal={handleStateModal} />
+      <Modal isOpen={modalNewUser} onClose={modalNewUserState} title="New User">
+        <CreateNewUser onCloseModal={modalNewUserState} />
       </Modal>
     </>
   );
