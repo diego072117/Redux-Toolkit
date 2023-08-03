@@ -1,5 +1,4 @@
 import { useUserActions } from "../../hooks/useUsersActions";
-import swal from "sweetalert";
 import "./Module.scss";
 
 type CreateNewUserProps = {
@@ -16,15 +15,8 @@ export const CreateNewUser = ({ onCloseModal }: CreateNewUserProps) => {
     const name = formData.get("name") as string;
     const email = formData.get("email") as string;
     const github = formData.get("github") as string;
-  
-
-    try {
-      addUser({ name, email, github });
-      onCloseModal();
-      swal("Registro exitoso", "Usuario registrado correctamente", "success");
-    } catch (error) {
-      swal("Error", "Hubo un error en el registro", "error");
-    }
+    addUser({ name, email, github });
+    onCloseModal();
   };
 
   return (

@@ -1,4 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { toast } from "sonner";
 
 const DEFAULT_STATE = [
   {
@@ -10,13 +11,13 @@ const DEFAULT_STATE = [
   {
     id: "2",
     name: "Santiago Carreño",
-    email: "parracalderond9@gmail.com",
+    email: "Santielproxd@gmail.com",
     github: "santicarreno13",
   },
   {
     id: "3",
     name: "Johan Avendaño",
-    email: "parracalderond9@gmail.com",
+    email: "JohanAvendaño@gmail.com",
     github: "Johan505",
   },
 ];
@@ -42,17 +43,28 @@ export const usersSlice = createSlice({
   name: "users",
   initialState,
   reducers: {
-    addNewUser: (state, action: PayloadAction<User> ) =>{
-      const id = crypto.randomUUID()
-      return [...state, {id, ...action.payload}]
+    addNewUser: (state, action: PayloadAction<User>) => {
+      const id = crypto.randomUUID();
+      state.push({ id, ...action.payload });
+      toast.success("Usuario registrado correctamente");
+      //return [...state, { id, ...action.payload }];
     },
     deleteUserById: (state, action: PayloadAction<UserId>) => {
       const id = action.payload;
       return state.filter((user) => user.id != id);
+    },
+    rollbackUser: (state, action: PayloadAction<UserWithId>) => {
+      const isUserAlreadyDefined = state.some(
+        (user) => user.id === action.payload.id
+      );
+      if (!isUserAlreadyDefined) {
+        state.push(action.payload);
+        //return [...state, action.payload];
+      }
     },
   },
 });
 
 export default usersSlice.reducer;
 
-export const { addNewUser, deleteUserById } = usersSlice.actions;
+export const { addNewUser, deleteUserById, rollbackUser } = usersSlice.actions;

@@ -1,7 +1,7 @@
 .container-card {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 
   & .img-github {
     width: 12em;
@@ -10,11 +10,26 @@
     margin-top: 2em;
   }
 
-  & .container-card {
-    background-color: #262D33;
+  & .content-card {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #262d33;
     margin: 10px;
     width: 263px;
     height: 370px;
-    flex-shrink: 0;
+
+    & .user-information {
+      color: #fff;
+    }
+
+    & .buttons {
+      & button {
+        color: #5d5d5d;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+      }
+    }
   }
 }
